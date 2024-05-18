@@ -8,6 +8,11 @@ An Electron application with React
 
 ## Project Setup
 
+### Enable cuda support (llama.cpp)
+```
+$ npx --no node-llama-cpp download --cuda
+```
+
 ### Install
 
 ```bash
@@ -32,3 +37,7 @@ $ npm run build:mac
 # For Linux
 $ npm run build:linux
 ```
+
+### Enabling ESM for llama.cpp
+1. Add `"type": "module"` in `package.json`
+2. Change `preload: join(__dirname, '../preload/index.js')` to `preload: join(__dirname, '../preload/index.mjs'),` in main.js
