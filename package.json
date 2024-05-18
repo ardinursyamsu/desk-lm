@@ -21,8 +21,7 @@
     "@electron-toolkit/preload": "^3.0.0",
     "@electron-toolkit/utils": "^3.0.0",
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.3",
-    "modelfusion": "^0.137.0"
+    "bootstrap": "^5.3.3"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^1.0.2",
