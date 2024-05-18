@@ -6,6 +6,16 @@ import '../../scss/styles.scss'
 function App() {
   const [query, setQuery] = useState('')
   const [content, setContent] = useState('')
+
+  function onQueryChange(e) {
+    setQuery(e.target.value)
+  }
+
+  async function onGenerateClick(e) {
+    const generatedValue = await window.api.generateQA(query)
+
+    setContent(generatedValue)
+  }
   return (
     <>
       <Navbar />
@@ -23,7 +33,7 @@ function App() {
               rows="3"
               className="form-control"
               value={query}
-              // onChange={onQueryChange}
+              onChange={onQueryChange}
             />
           </div>
         </div>
@@ -33,7 +43,7 @@ function App() {
             type="button"
             className="btn primary btn-primary"
             id="btn-generate"
-            // onClick={onGenerateClick}
+            onClick={onGenerateClick}
           >
             Generate
           </button>
