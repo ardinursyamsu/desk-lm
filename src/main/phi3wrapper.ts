@@ -12,7 +12,7 @@ export class Phi3ChatPrompWrapper extends ChatPromptWrapper {
     }
 
     public override getStopStrings(): string[] {
-        return ["<|end|>", "<|user|>"];
+        return ["<|end|>", "<|user|>", " <|user| "];
     }
 
     public override getDefaultStopString(): string {

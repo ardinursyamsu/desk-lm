@@ -1,8 +1,16 @@
-function Navbar() {
+import Generate from "../page/Generate"
+
+function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-sm primary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a
+          className="navbar-brand"
+          href="#"
+          onClick={() => {
+            props.onNavUpdate(this, <div className="page-label">HOME</div>)
+          }}
+        >
           Desk-LM
         </a>
         <button
@@ -19,12 +27,25 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="#"
+                onClick={() => {
+                  props.onNavUpdate(this, <Generate />)
+                }}
+              >
                 Generate
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a
+                className="nav-link"
+                href="#"
+                onClick={() => {
+                  props.onNavUpdate(this, <div className="page-label">CONTEXT</div>)
+                }}
+              >
                 Context
               </a>
             </li>

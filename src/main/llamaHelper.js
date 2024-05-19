@@ -34,12 +34,14 @@ export function streamingQA(event, query) {
 
   var sent = ''
   session.prompt(query, {
-    maxTokens: 512,
+    maxTokens: 1024,
     temperature: 0.8,
     topK: 40,
     topP: 0.02,
     onToken(chunk) {
-      sent += context.decode(chunk)
+      const decoded_chunk  = context.decode(chunk)
+      sent += decoded_chunk
+      process.stdout.write(decoded_chunk + '\\')
       webContents.send('answer', sent)
     }
   })
