@@ -44,6 +44,7 @@ button.primary {
   border-radius: 8px;
   height: 50vh;
   border: 1px solid #272323;
+  overflow-y: scroll;
 }
 
 #btn-generate {

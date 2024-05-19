@@ -6,6 +6,9 @@ const api = {
   testGenerate: (query) => {
     ipcRenderer.send('test-generate', query)
   },
+  streamQA: (query) => {
+    ipcRenderer.send('stream-qa', query)
+  },
   generateQA: (query) => ipcRenderer.invoke('generate-qa', query) // invoke can only declared as one-liner
 }
 
