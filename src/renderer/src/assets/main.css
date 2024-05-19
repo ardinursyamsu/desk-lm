@@ -39,14 +39,31 @@ button.primary {
 
 .content {
   background-color: #526d82;
-  padding: 8px 2px 16px 16px;
+  color: #fcfcfc;
+  padding: 8px 16px 8px 16px;
   margin-bottom: 16px;
   border-radius: 8px;
-  height: 50vh;
+  height: 56vh;
   border: 1px solid #272323;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #btn-generate {
   margin-right: 12px;
+}
+
+pre {
+  background-color: #4b4b4a;
+  padding: 16px;
+  border-radius: 8px;
+  border-color: #27374d !important;
+  border: 1px solid;
+}
+
+pre code {
+  color: #dde6ed !important;
+}
+
+p code {
+  color: #ffff62 !important;
 }

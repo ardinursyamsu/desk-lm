@@ -1,15 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
+import markdownIt from 'markdown-it'
 
 import '../../scss/styles.scss'
 
 function App() {
   const [query, setQuery] = useState('')
+  const md = markdownIt()
   // const [content, setContent] = useState('')
 
-  window.electron.ipcRenderer.on('answer', (event, chunk) => {
-    document.getElementById('content').innerHTML = chunk // using this is faster than setstate
-  })
+  useEffect(() => {
+    window.electron.ipcRenderer.on('answer', (event, chunk) => {
+      document.getElementById('content').innerHTML = md.render(chunk) // using this is faster than setstate
+    })
+  }, [])
 
   function onQueryChange(e) {
     setQuery(e.target.value)
