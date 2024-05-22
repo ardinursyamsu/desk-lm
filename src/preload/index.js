@@ -9,7 +9,9 @@ const api = {
   streamQA: (query) => {
     ipcRenderer.send('stream-qa', query)
   },
-  generateQA: (query) => ipcRenderer.invoke('generate-qa', query) // invoke can only declared as one-liner
+  generateQA: (query) => ipcRenderer.invoke('generate-qa', query), // invoke can only declared as one-liner
+  fileUpload: (file) => ipcRenderer.invoke('file-upload', file), // use invoke as two-way communication
+  parseDocument: (file) => ipcRenderer.invoke('parse-document', file)
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

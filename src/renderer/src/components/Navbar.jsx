@@ -1,4 +1,5 @@
 import Generate from "../page/Generate"
+import Upload from "../page/Upload"
 
 function Navbar(props) {
   return (
@@ -36,6 +37,18 @@ function Navbar(props) {
                 }}
               >
                 Generate
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="#"
+                onClick={() => {
+                  props.onNavUpdate(this, <Upload />)
+                }}
+              >
+                Upload
               </a>
             </li>
             <li className="nav-item">
