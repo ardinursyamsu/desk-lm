@@ -24,7 +24,8 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "markdown-it": "^14.1.0",
-    "node-llama-cpp": "^2.8.10"
+    "node-llama-cpp": "^2.8.10",
+    "pdf-text-reader": "^5.1.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^1.0.2",

@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import markdownIt from 'markdown-it'
 
 export default function Upload() {
   const [file, setFile] = useState()
+  const [content, setContent] = useState('')
+  const md = markdownIt()
 
   function onFileChange(e) {
     setFile(e.target.value)
@@ -14,7 +17,8 @@ export default function Upload() {
   }
 
   async function onClickParse(e) {
-    window.api.parseDocument(file)
+    const text = await window.api.parseDocument(file)
+    document.getElementById('content').innerHTML = md.render(text)
   }
 
   return (
@@ -29,7 +33,6 @@ export default function Upload() {
               Upload document here
             </label>
             <div className="form-group row">
-
               <div className="input-group mb-3">
                 <input
                   type="text"
@@ -45,16 +48,13 @@ export default function Upload() {
                     Select File
                   </button>
                 </div>
-
               </div>
               <div className="col-sm">
-                <button
-                  type="submit"
-                  className="btn btn-primary px-4"
-                  onClick={onClickParse}
-                >
+                <button type="submit" className="btn btn-primary px-4" onClick={onClickParse}>
                   Parse
                 </button>
+                <p></p>
+                <div className="content" id="content"></div>
               </div>
             </div>
           </div>
