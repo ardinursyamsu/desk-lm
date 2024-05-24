@@ -1,28 +1,6 @@
-import { ipcMain, dialog } from 'electron'
+import { ipcMain } from 'electron'
 import { generateQA, streamingQA } from './llamaHelper'
-import fs from 'node:fs'
-import { readPdfPages } from 'pdf-text-reader'
-
-async function handleFile(event, file) {
-  const files = await dialog.showOpenDialog()
-  return files.filePaths[0]
-}
-
-async function parseDocument(event, file) {
-  const pages = await readPdfPages({ url: file })
-  let text = ''
-  for (const page of pages) {
-    for (const line of page?.lines) {
-      if (line.length < 5) {
-        text += "\n\n"
-      } else {
-        text += line
-      }
-    }
-  }
-
-  return text
-}
+import { handleFile, parseDocument } from './documentServices'
 
 export function declareHandler() {
   ipcMain.on('test-generate', (event, query) => {
